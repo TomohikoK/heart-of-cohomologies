@@ -1,0 +1,51 @@
+\documentclass{jarticle}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage[all]{xy}
+
+
+\usepackage{inconsolata}
+\usepackage{verbatim}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{framed}
+\usepackage{xcolor}
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+\newcommand{\mathint}[0]{\mathbb{Z}}
+
+\newcommand{\category}[1]{\mathcal{#1}}
+
+\title{右導来関手 (Right Derived Functor)}
+\author{Kinebuchi Tomohiko}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{R.D.F.2}
+
+Diagram.
+
+\xymatrix{
+  && 0 && 0 && 0 && \\
+  \cdots \ar@{->}[rr]^{F(''d^{j-1})} && F(''I^{j}) \ar@{->}[rr]^{F(''d^{j})} \ar@{->}[u] && F(''I^{j+1}) \ar@{->}[rr]^{F(''d^{j+1})} \ar@{->}[u] && F(''I^{j+2}) \ar@{->}[rr]^{F(''d^{j+2})} \ar@{->}[u] && \cdots \\
+  \cdots \ar@{->}[rr]^{F(d^{j-1})} && F(I^{j}) \ar@{->}[rr]^{F(d^{j})} \ar@{->}[u]^{F(\pi^{j})} && F(I^{j+1}) \ar@{->}[rr]^{F(d^{j+1})} \ar@{->}[u]^{F(\pi^{j+1})} && F(I^{j+2}) \ar@{->}[rr]^{F(d^{j+2})} \ar@{->}[u]^{F(\pi^{j+2})} && \cdots \\
+  \cdots \ar@{->}[rr]^{F('d^{j-1})} && F('I^{j}) \ar@{->}[rr]^{F('d^{j})} \ar@{->}[u]^{F(\iota^{j})} && F('I^{j+1}) \ar@{->}[rr]^{F('d^{j+1})} \ar@{->}[u]^{F(\iota^{j+1})} && F('I^{j+2}) \ar@{->}[rr]^{F('d^{j+2})} \ar@{->}[u]^{F(\iota^{j+2})} && \cdots \\
+  && 0 \ar@{->}[u] && 0 \ar@{->}[u] && 0 \ar@{->}[u] &
+}
+
+Diagram chasing starting with $''y^{j} \in \ker F(''d^{j})$.
+
+\xymatrix{
+  && \textcolor{gray}{0} && \textcolor{gray}{0} && \textcolor{gray}{0} && \\
+  \cdots \ar@{.>}[rr] && ''y^{j} \ar@{|->}[rr]^{\text{1. }''y^{j} \in \ker} \ar@{.>}[u] \ar@{~>}[rrd]_{\text{3. }\circlearrowright}  && 0 \ar@{.>}[rr] \ar@{.>}[u] && \textcolor{gray}{''y^{j+2}} \ar@{.>}[rr] \ar@{.>}[u] && \cdots \\
+  \cdots \ar@{.>}[rr] && \exists y^{j} \ar@{|->}[rr] \ar@{|->}[u]^{\text{2. surjective}} \ar@{~>}[rrd]_{\text{4. complete}} && y^{j+1} \ar@{|->}[rr]^{\text{5. } y^{j+1} \in \ker} \ar@{|->}[u] \ar@{~>}[rrd]_{\text{6. }\circlearrowright} && 0 \ar@{.>}[rr] \ar@{.>}[u] && \cdots \\
+  \cdots \ar@{.>}[rr] && \textcolor{gray}{'y^{j}} \ar@{.>}[rr] \ar@{.>}[u] && \exists 'y^{j+1} \ar@{|->}[rr] \ar@{|->}[u] && 0 \ar@{.>}[rr] \ar@{|->}[u]_{\text{7. injective}} && \cdots \\
+  && \textcolor{gray}{0} \ar@{.>}[u] && \textcolor{gray}{0} \ar@{.>}[u] && \textcolor{gray}{0} \ar@{.>}[u] &
+}
+
+
+\section{R.D.F.3}
+
+\end{document}
