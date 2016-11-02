@@ -37,7 +37,7 @@ Diagram.
 
 Diagram chasing starting from $''y^{j} \in \ker F(''d^{j})$.
 
-\xymatrix{
+\xymatrix@=3em{
   && \textcolor{gray}{0} && \textcolor{gray}{0} && \textcolor{gray}{0} && \\
   \cdots \ar@{.>}[rr] && ''y^{j} \ar@{|->}[rr]^{\text{1. }''y^{j} \in \ker} \ar@{.>}[u] \ar@{~>}[rrd]_{\text{3. }\circlearrowright}  && 0 \ar@{.>}[rr] \ar@{.>}[u] && \textcolor{gray}{''y^{j+2}} \ar@{.>}[rr] \ar@{.>}[u] && \cdots \\
   \cdots \ar@{.>}[rr] && \exists y^{j} \ar@{|->}[rr] \ar@{|->}[u]^{\text{2. surjective}} \ar@{~>}[rrd]_{\text{4. complete}} && y^{j+1} \ar@{|->}[rr]^{\text{5. } y^{j+1} \in \ker} \ar@{|->}[u] \ar@{~>}[rrd]_{\text{6. }\circlearrowright} && 0 \ar@{.>}[rr] \ar@{.>}[u] && \cdots \\
@@ -48,5 +48,19 @@ Diagram chasing starting from $''y^{j} \in \ker F(''d^{j})$.
 $\therefore 'y^{j+1} \in \ker F('d^{j+1})$.
 
 \section{R.D.F.3}
+
+\xymatrix{
+  &&&& 0 &&&& \\
+  && 0 &&& 0 & \cdots \\
+  &&& 0 & F(''I^{j+1}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& \cdots \\
+  && F(''I^{j}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& F(''J^{j+1}) \ar@{->}[uu] \ar@{->}[rru] & \cdots \\
+  \cdots \ar@{-->}[rru] &&& F(''J^{j}) \ar@{->}[uu] \ar@{->}[rru] & F(I^{j+1}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& \cdots \\
+  & \cdots \ar@{->}[rru] & F(I^{j}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& F(J^{j+1}) \ar@{->}[uu] \ar@{->}[rru] & \cdots \\
+  \cdots \ar@{-->}[rru] &&& F(J^{j}) \ar@{->}[uu] \ar@{->}[rru] & F('I^{j+1}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& \cdots \\
+  & \cdots \ar@{->}[rru] & F('I^{j}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& F('J^{j+1}) \ar@{->}[uu] \ar@{->}[rru] \\
+  \cdots \ar@{-->}[rru] &&& F('J^{j}) \ar@{->}[uu] \ar@{->}[rru] & 0 \ar@{-->}[uu] \\
+  & \cdots \ar@{->}[rru] & 0 \ar@{-->}[uu] &&& 0 \ar@{->}[uu] \\
+  &&& 0 \ar@{->}[uu]
+}
 
 \end{document}
