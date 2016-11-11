@@ -5,9 +5,12 @@
 
 \usepackage{inconsolata}
 \usepackage{verbatim}
-\usepackage[dvipdfmx]{hyperref}
+
 \usepackage{framed}
 \usepackage{xcolor}
+
+\DeclareMathOperator{\kernel}{Ker}
+\DeclareMathOperator{\image}{Im}
 
 \newcommand{\code}[1]{\texttt{#1}}
 
@@ -28,39 +31,91 @@
 Diagram.
 
 \xymatrix{
-  && 0 && 0 && 0 && \\
+  && 0 && 0 && 0 \\
   \cdots \ar@{->}[rr]^{F(''d^{j-1})} && F(''I^{j}) \ar@{->}[rr]^{F(''d^{j})} \ar@{->}[u] && F(''I^{j+1}) \ar@{->}[rr]^{F(''d^{j+1})} \ar@{->}[u] && F(''I^{j+2}) \ar@{->}[rr]^{F(''d^{j+2})} \ar@{->}[u] && \cdots \\
   \cdots \ar@{->}[rr]^{F(d^{j-1})} && F(I^{j}) \ar@{->}[rr]^{F(d^{j})} \ar@{->}[u]^{F(\pi^{j})} && F(I^{j+1}) \ar@{->}[rr]^{F(d^{j+1})} \ar@{->}[u]^{F(\pi^{j+1})} && F(I^{j+2}) \ar@{->}[rr]^{F(d^{j+2})} \ar@{->}[u]^{F(\pi^{j+2})} && \cdots \\
   \cdots \ar@{->}[rr]^{F('d^{j-1})} && F('I^{j}) \ar@{->}[rr]^{F('d^{j})} \ar@{->}[u]^{F(\iota^{j})} && F('I^{j+1}) \ar@{->}[rr]^{F('d^{j+1})} \ar@{->}[u]^{F(\iota^{j+1})} && F('I^{j+2}) \ar@{->}[rr]^{F('d^{j+2})} \ar@{->}[u]^{F(\iota^{j+2})} && \cdots \\
-  && 0 \ar@{->}[u] && 0 \ar@{->}[u] && 0 \ar@{->}[u] &
+  && 0 \ar@{->}[u] && 0 \ar@{->}[u] && 0 \ar@{->}[u]
 }
 
-Diagram chasing starting from $''y^{j} \in \ker F(''d^{j})$.
+Diagram chasing starting from $''y^{j} \in \kernel F(''d^{j})$.
 
 \xymatrix@=3em{
-  && \textcolor{gray}{0} && \textcolor{gray}{0} && \textcolor{gray}{0} && \\
-  \cdots \ar@{.>}[rr] && ''y^{j} \ar@{|->}[rr]^{\text{1. }''y^{j} \in \ker} \ar@{.>}[u] \ar@{~>}[rrd]_{\text{3. }\circlearrowright}  && 0 \ar@{.>}[rr] \ar@{.>}[u] && \textcolor{gray}{''y^{j+2}} \ar@{.>}[rr] \ar@{.>}[u] && \cdots \\
-  \cdots \ar@{.>}[rr] && \exists y^{j} \ar@{|->}[rr] \ar@{|->}[u]^{\text{2. surjective}} \ar@{~>}[rrd]_{\text{4. complete}} && y^{j+1} \ar@{|->}[rr]^{\text{5. } y^{j+1} \in \ker} \ar@{|->}[u] \ar@{~>}[rrd]_{\text{6. }\circlearrowright} && 0 \ar@{.>}[rr] \ar@{.>}[u] && \cdots \\
-  \cdots \ar@{.>}[rr] && \textcolor{gray}{'y^{j}} \ar@{.>}[rr] \ar@{.>}[u] && \exists 'y^{j+1} \ar@{|->}[rr]_{\therefore 'y^{j+1} \in \ker} \ar@{|->}[u] && 0 \ar@{.>}[rr] \ar@{|->}[u]_{\text{7. injective}} && \cdots \\
-  && \textcolor{gray}{0} \ar@{.>}[u] && \textcolor{gray}{0} \ar@{.>}[u] && \textcolor{gray}{0} \ar@{.>}[u] &
+  && \textcolor{gray}{0} && \textcolor{gray}{0} && \textcolor{gray}{0} \\
+  \cdots \ar@{.>}[rr] && ''y^{j} \ar@{|->}[rr]^{\text{1. }''y^{j} \in \kernel} \ar@{.>}[u] \ar@{~>}[rrd]_{\text{3. }\circlearrowright}  && 0 \ar@{.>}[rr] \ar@{.>}[u] && \textcolor{gray}{''y^{j+2}} \ar@{.>}[rr] \ar@{.>}[u] && \cdots \\
+  \cdots \ar@{.>}[rr] && \exists y^{j} \ar@{|->}[rr] \ar@{|->}[u]^{\text{2. surjective}} \ar@{~>}[rrd]_{\text{4. complete}} && y^{j+1} \ar@{|->}[rr]^{\text{5. } y^{j+1} \in \kernel} \ar@{|->}[u] \ar@{~>}[rrd]_{\text{6. }\circlearrowright} && 0 \ar@{.>}[rr] \ar@{.>}[u] && \cdots \\
+  \cdots \ar@{.>}[rr] && \textcolor{gray}{'y^{j}} \ar@{.>}[rr] \ar@{.>}[u] && \exists 'y^{j+1} \ar@{|->}[rr]_{\therefore 'y^{j+1} \in \kernel} \ar@{|->}[u] && 0 \ar@{.>}[rr] \ar@{|->}[u]_{\text{7. injective}} && \cdots \\
+  && \textcolor{gray}{0} \ar@{.>}[u] && \textcolor{gray}{0} \ar@{.>}[u] && \textcolor{gray}{0} \ar@{.>}[u]
 }
 
-$\therefore 'y^{j+1} \in \ker F('d^{j+1})$.
+$\therefore 'y^{j+1} \in \kernel F('d^{j+1})$.
 
 \section{R.D.F.3}
+
+\subsection{three dimensional grid}
+
+Overview.
 
 \xymatrix{
   &&&& 0 &&&& \\
   && 0 &&& 0 & \cdots \\
-  &&& 0 & F(''I^{j+1}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& \cdots \\
-  && F(''I^{j}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& F(''J^{j+1}) \ar@{->}[uu] \ar@{->}[rru] & \cdots \\
-  \cdots \ar@{-->}[rru] &&& F(''J^{j}) \ar@{->}[uu] \ar@{->}[rru] & F(I^{j+1}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& \cdots \\
-  & \cdots \ar@{->}[rru] & F(I^{j}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& F(J^{j+1}) \ar@{->}[uu] \ar@{->}[rru] & \cdots \\
-  \cdots \ar@{-->}[rru] &&& F(J^{j}) \ar@{->}[uu] \ar@{->}[rru] & F('I^{j+1}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& \cdots \\
-  & \cdots \ar@{->}[rru] & F('I^{j}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd] &&& F('J^{j+1}) \ar@{->}[uu] \ar@{->}[rru] \\
+  &&& 0 & F(''I^{j+1}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd]^{F(h^{j+1})} &&& \cdots \\
+  && F(''I^{j}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd]^{F(h^{j})} &&& F(''J^{j+1}) \ar@{->}[uu] \ar@{->}[rru] & \cdots \\
+  \cdots \ar@{-->}[rru] &&& F(''J^{j}) \ar@{->}[uu] \ar@{->}[rru] & F(I^{j+1}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd]^{F(g^{j+1})} &&& \cdots \\
+  & \cdots \ar@{->}[rru] & F(I^{j}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd]^{F(g^{j})} &&& F(J^{j+1}) \ar@{->}[uu] \ar@{->}[rru] & \cdots \\
+  \cdots \ar@{-->}[rru] &&& F(J^{j}) \ar@{->}[uu] \ar@{->}[rru] & F('I^{j+1}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd]^{F(f^{j+1})} &&& \cdots \\
+  & \cdots \ar@{->}[rru] & F('I^{j}) \ar@{-->}[uu] \ar@{-->}[rru] \ar@{=>}[rd]^{F(f^{j})} &&& F('J^{j+1}) \ar@{->}[uu] \ar@{->}[rru] \\
   \cdots \ar@{-->}[rru] &&& F('J^{j}) \ar@{->}[uu] \ar@{->}[rru] & 0 \ar@{-->}[uu] \\
   & \cdots \ar@{->}[rru] & 0 \ar@{-->}[uu] &&& 0 \ar@{->}[uu] \\
   &&& 0 \ar@{->}[uu]
+}
+
+Background grid.
+
+\xymatrix@=3em{
+  && 0 && 0 \\
+  \cdots \ar@{-->}[rr]^{F(''d_{A}^{j-1})} && F(''I^{j}) \ar@{-->}[rr]^{F(''d_{A}^{j})} \ar@{-->}[u] && F(''I^{j+1}) \ar@{-->}[rr]^{F(''d_{A}^{j+1})} \ar@{-->}[u] && \cdots \\
+  \cdots \ar@{-->}[rr]^{F(d_{A}^{j-1})} && F(I^{j}) \ar@{-->}[rr]^{F(d_{A}^{j})} \ar@{-->}[u]^{F(\pi^{j})} && F(I^{j+1}) \ar@{-->}[rr]^{F(d_{A}^{j+1})} \ar@{-->}[u]^{F(\pi^{j+1})} && \cdots \\
+  \cdots \ar@{-->}[rr]^{F('d_{A}^{j-1})} && F('I^{j}) \ar@{-->}[rr]^{F('d_{A}^{j})} \ar@{-->}[u]^{F(\iota^{j})} && F('I^{j+1}) \ar@{-->}[rr]^{F('d_{A}^{j+1})} \ar@{-->}[u]^{F(\iota^{j+1})} && \cdots \\
+  && 0 \ar@{-->}[u] && 0 \ar@{-->}[u]
+}
+
+Foreground grid.
+
+\xymatrix@=3em{
+  && 0 && 0 \\
+  \cdots \ar@{->}[rr]^{F(''d_{B}^{j-1})} && F(''J^{j}) \ar@{->}[rr]^{F(''d_{B}^{j})} \ar@{->}[u] && F(''J^{j+1}) \ar@{->}[rr]^{F(''d_{B}^{j+1})} \ar@{->}[u] && \cdots \\
+  \cdots \ar@{->}[rr]^{F(d_{B}^{j-1})} && F(J^{j}) \ar@{->}[rr]^{F(d_{B}^{j})} \ar@{->}[u]^{F(p^{j})} && F(J^{j+1}) \ar@{->}[rr]^{F(d_{B}^{j+1})} \ar@{->}[u]^{F(p^{j+1})} && \cdots \\
+  \cdots \ar@{->}[rr]^{F('d_{B}^{j-1})} && F('J^{j}) \ar@{->}[rr]^{F('d_{B}^{j})} \ar@{->}[u]^{F(q^{j})} && F('J^{j+1}) \ar@{->}[rr]^{F('d_{B}^{j+1})} \ar@{->}[u]^{F(q^{j+1})} && \cdots \\
+  && 0 \ar@{->}[u] && 0 \ar@{->}[u]
+}
+
+\subsection{starting with $F(q^{j+1}): 'x^{j+1} \mapsto x^{j+1}$}
+
+A development of the lower half of the 3D grid.
+
+Terminology: $'x^{j} = F(f^{j})('y^{j}), x^{j} = F(g^{j})(y^{j}), ''x^{j} = F(h^{j})(''y^{j}), 'x^{j+1} = F(f^{j+1})('y^{j+1}),\dots$
+
+\xymatrix{
+  x^{j} \ar@{|->}[rr] && x^{j+1} \\
+  &&&& \\
+  y^{j} \ar@{|-->}[rr] \ar@{|=>}[uu]^{\spadesuit} && y^{j+1} \ar@{|=>}[uu] \ar@{|=>}[rr] \ar@{~>}[lluu]^{\text{3. }\circlearrowright} && x^{j+1} \\
+  &&&& \\
+  'y^{j} \ar@{|-->}[uu] \ar@{|-->}[rr] && 'y^{j+1} \ar@{|=>}[rr] \ar@{|-->}[uu] \ar@{~>}[lluu]^{\text{2. by def}} && 'x^{j+1} \ar@{|->}[uu] \ar@{~>}[lluu]^{\text{1. }\circlearrowright}
+}
+
+\vspace{1em}
+
+A flank of the upper half of the 3D grid.
+
+\vspace{1em}
+
+\xymatrix{
+  ''y^{j} \ar@{|=>}[rr] && ''x^{j} && ''z^{j} && ''z^{j} - ''x^{j} = 0 \\
+  &&&&& \Rightarrow^\text{5.} & \\
+  y^{j} \ar@{|=>}[rr]^{\spadesuit} \ar@{|-->}[uu] && x^{j} \ar@{|->}[uu]^{\heartsuit} \ar@{~>}[lluu]^{\text{4. }\circlearrowright} && z^{j} \ar@{|->}[uu]^{\diamondsuit} && z^{j} - x^{j} \ar@{|->}[uu]^{\diamondsuit - \heartsuit} \ar@{|->}[rr] \ar@{~>}[rrdd]^{\text{7. }\circlearrowright} && z^{j+1} - x^{j+1} \\
+  &&&&&&&& \\
+  &&&&&& \exists 'w^{j} \ar@{|->}[uu]^{\text{6. }complete} \ar@{|->}[rr] && ''z^{j+1} - ''x^{j+1} \in \image \ar@{|->}[uu]^{\text{8. injective}}
 }
 
 \end{document}
